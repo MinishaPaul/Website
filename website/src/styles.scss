@@ -43,9 +43,15 @@
 }
 
 html, body {
-  width: 100%;
-  overflow-x: hidden;
   height: 100%;
+  width: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
 html {
@@ -54,11 +60,6 @@ html {
 }
 
 body {
-  font-family: 'Inter', sans-serif;
-  line-height: 1.6;
-  color: var(--text-color);
-  min-width: 100%;
-  height: 100%;
   background-color: var(--light-bg);
   transition: background-color var(--transition-speed) ease;
 }
@@ -248,17 +249,17 @@ p {
 }
 
 // Utility classes
-.mt-1 { margin-top: 0.5rem; }
-.mt-2 { margin-top: 1rem; }
-.mt-3 { margin-top: 1.5rem; }
-.mt-4 { margin-top: 2rem; }
-.mt-5 { margin-top: 3rem; }
+.mt-1 { margin-top: 0.25rem; }
+.mt-2 { margin-top: 0.5rem; }
+.mt-3 { margin-top: 1rem; }
+.mt-4 { margin-top: 1.5rem; }
+.mt-5 { margin-top: 2rem; }
 
-.mb-1 { margin-bottom: 0.5rem; }
-.mb-2 { margin-bottom: 1rem; }
-.mb-3 { margin-bottom: 1.5rem; }
-.mb-4 { margin-bottom: 2rem; }
-.mb-5 { margin-bottom: 3rem; }
+.mb-1 { margin-bottom: 0.25rem; }
+.mb-2 { margin-bottom: 0.5rem; }
+.mb-3 { margin-bottom: 1rem; }
+.mb-4 { margin-bottom: 1.5rem; }
+.mb-5 { margin-bottom: 2rem; }
 
 .text-center { text-align: center; }
 .text-primary { color: var(--primary-color); }
@@ -302,6 +303,39 @@ p {
       }
     }
   }
+
+  .menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 10;
+
+    .bar {
+      width: 100%;
+      height: 3px;
+      background-color: white;
+      border-radius: 3px;
+      transition: all 0.3s ease-in-out;
+    }
+
+    &.active {
+      .bar:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+      }
+      .bar:nth-child(2) {
+        opacity: 0;
+      }
+      .bar:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+      }
+    }
+  }
 }
 
 .main-content {
@@ -329,7 +363,8 @@ p {
   }
 
   .container {
-    padding: 0 1.5rem;
+    padding: 1rem;
+    width: 100%;
   }
 
   h1 {
@@ -345,23 +380,62 @@ p {
   }
 
   .navbar {
-    flex-direction: column;
     padding: 1rem;
 
-    .navbar-brand {
-      margin-bottom: 1rem;
+    .menu-toggle {
+      display: flex;
     }
 
     .navbar-links {
-      flex-wrap: wrap;
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: var(--primary-color);
+      flex-direction: column;
       justify-content: center;
-      gap: 1rem;
+      align-items: center;
+      gap: 2rem;
+      padding: 2rem;
+      transition: all 0.3s ease-in-out;
+      
+      &.active {
+        display: flex;
+      }
+
+      a {
+        font-size: 1.5rem;
+        padding: 1rem;
+        width: 100%;
+        text-align: center;
+
+        &:hover {
+          background-color: rgba(255, 255, 255, 0.1);
+        }
+      }
     }
   }
 
   .btn {
     padding: 0.8rem 1.6rem;
     font-size: 1rem;
+  }
+
+  // Improve touch targets
+  button, 
+  a {
+    min-height: 44px;
+    min-width: 44px;
+    padding: 0.5rem;
+  }
+
+  // Improve form elements on mobile
+  input, 
+  select, 
+  textarea {
+    font-size: 16px; // Prevent iOS zoom on focus
   }
 }
 
@@ -390,4 +464,68 @@ p {
     padding: 0.7rem 1.4rem;
     font-size: 0.9rem;
   }
+}
+
+// Tablet and larger
+@media screen and (min-width: 769px) {
+  .container {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+}
+
+// Utility classes
+.w-100 {
+  width: 100%;
+}
+
+.h-100 {
+  height: 100%;
+}
+
+// Flex utilities
+.d-flex {
+  display: flex;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.justify-content-center {
+  justify-content: center;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+// Spacing utilities
+.m-0 { margin: 0; }
+.p-0 { padding: 0; }
+
+// Responsive images
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+// Better tap highlights for mobile
+@media (hover: none) {
+  a:active,
+  button:active {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+}
+
+// Remove outline for non-keyboard interactions
+*:focus:not(:focus-visible) {
+  outline: none;
+}
+
+// Maintain outline for keyboard navigation
+*:focus-visible {
+  outline: 2px solid #000;
+  outline-offset: 2px;
 }

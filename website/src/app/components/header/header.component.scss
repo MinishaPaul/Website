@@ -1,0 +1,215 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
+.navbar {
+  background-color: var(--primary-color);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+
+  &.scrolled {
+    padding: 0.5rem 2rem;
+    background-color: rgba(var(--primary-color-rgb), 0.95);
+    backdrop-filter: blur(10px);
+  }
+
+  .navbar-brand {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-decoration: none;
+    z-index: 1001;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: var(--secondary-color);
+    }
+  }
+
+  .menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001;
+
+    .bar {
+      width: 100%;
+      height: 3px;
+      background-color: white;
+      border-radius: 3px;
+      transition: all 0.3s ease-in-out;
+    }
+
+    &.active {
+      .bar:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+      }
+      .bar:nth-child(2) {
+        opacity: 0;
+      }
+      .bar:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+      }
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .navbar-links {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+
+    a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      position: relative;
+
+      &:hover {
+        color: var(--secondary-color);
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+
+      &.active {
+        color: var(--secondary-color);
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 0;
+        height: 2px;
+        background-color: var(--secondary-color);
+        transition: all 0.3s ease;
+        transform: translateX(-50%);
+      }
+
+      &:hover::after {
+        width: 80%;
+      }
+    }
+
+    .theme-toggle {
+      background: transparent;
+      border: none;
+      color: white;
+      cursor: pointer;
+      padding: 0.5rem;
+      font-size: 1.2rem;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+        transform: rotate(15deg);
+      }
+
+      &:focus {
+        outline: none;
+      }
+
+      i {
+        transition: all 0.3s ease;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 1rem;
+
+    &.scrolled {
+      padding: 0.5rem 1rem;
+    }
+
+    .menu-toggle {
+      display: flex;
+    }
+
+    .navbar-links {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: var(--primary-color);
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 1.5rem;
+      padding: 4rem 2rem 2rem;
+      transition: all 0.3s ease-in-out;
+      z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+      
+      &.active {
+        display: flex;
+        opacity: 1;
+        visibility: visible;
+      }
+
+      a {
+        font-size: 1.25rem;
+        padding: 1rem;
+        width: 100%;
+        text-align: center;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+
+        &:hover {
+          background-color: rgba(255, 255, 255, 0.1);
+          transform: translateY(-2px);
+        }
+
+        &::after {
+          display: none;
+        }
+      }
+
+      .theme-toggle {
+        margin-top: 1rem;
+        width: 100%;
+        border-radius: 8px;
+        height: auto;
+        padding: 1rem;
+
+        &:hover {
+          transform: none;
+          background-color: rgba(255, 255, 255, 0.1);
+        }
+      }
+    }
+  }
+} 
