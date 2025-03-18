@@ -1,25 +1,32 @@
 <section class="experience-section">
   <div class="container">
-    <h1>Work Experience</h1>
-    <p class="subtitle">My professional journey and achievements</p>
-
+    <h1>PROFESSIONAL EXPERIENCE</h1>
     <div class="timeline">
-      <div *ngFor="let exp of experiences; let i = index" class="timeline-item">
-        <div class="timeline-content">
-          <div class="timeline-header">
-            <h2>{{ exp.position }}</h2>
-            <span class="period">{{ exp.period }}</span>
-          </div>
-          <h3 class="company">{{ exp.company }}</h3>
-          <p class="description">{{ exp.description }}</p>
-          <div class="technologies">
-            <span *ngFor="let tech of exp.technologies" class="tech-tag">
-              {{ tech }}
-            </span>
-          </div>
+      <div class="timeline-item" *ngFor="let exp of experiences">
+        <div class="date">{{ exp.duration }}</div>
+        <div class="content">
+          <h3 class="title">{{ exp.company }}</h3>
+          <div class="role">{{ exp.position }}</div>
+          <div class="location">{{ exp.location }}</div>
+          <ul class="responsibilities">
+            <li *ngFor="let responsibility of exp.responsibilities">{{ responsibility }}</li>
+          </ul>
         </div>
-        <div class="timeline-dot"></div>
-        <div class="timeline-line" *ngIf="i !== experiences.length - 1"></div>
+      </div>
+    </div>
+
+    <div class="experience-stats">
+      <div class="stat-item">
+        <div class="stat-number">{{ experiences.length }}+</div>
+        <div class="stat-label">Years of Experience</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">{{ getTotalTechnologies() }}+</div>
+        <div class="stat-label">Technologies</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">{{ getTotalProjects() }}+</div>
+        <div class="stat-label">Projects Completed</div>
       </div>
     </div>
   </div>

@@ -154,3 +154,14 @@
     }
   }
 } 
+
+h1::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 450px;
+  width: 60px;
+  height: 4px;
+  background: var(--secondary-color);
+  border-radius: 2px;
+}

@@ -1,0 +1,19 @@
+<section class="projects-section">
+  <div class="container">
+    <h1>KEY PROJECTS</h1>
+    <div class="timeline">
+      <div class="timeline-item" *ngFor="let project of projects">
+        <div class="date">{{ project.duration }}</div>
+        <div class="content">
+          <h3 class="title">{{ project.name }}</h3>
+          <div class="role">{{ project.role }}</div>
+          <div class="client">{{ project.client }}</div>
+          <p class="description">{{ project.description }}</p>
+          <div class="tech-stack">
+            <span class="tech" *ngFor="let tech of project.techStack">{{ tech }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> 

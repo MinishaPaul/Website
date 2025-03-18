@@ -37,7 +37,7 @@
           color: #2d3748;
           margin-bottom: 1.5rem;
           padding-bottom: 0.5rem;
-          border-bottom: 2px solid #667eea;
+          // border-bottom: 2px solid #667eea;
         }
 
         .skill-list {
@@ -113,3 +113,14 @@
     }
   }
 } 
+
+h1::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 450px;
+  width: 60px;
+  height: 4px;
+  background: var(--secondary-color);
+  border-radius: 2px;
+}
