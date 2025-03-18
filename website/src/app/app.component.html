@@ -1,0 +1,45 @@
+<nav class="navbar" [class.scrolled]="isScrolled">
+  <a href="#" class="navbar-brand">MINISHA P M</a>
+  <div class="navbar-links" [class.active]="isMenuOpen">
+    <a href="#home" (click)="scrollToSection('home', $event)">Home</a>
+    <a href="#about" (click)="scrollToSection('about', $event)">About</a>
+    <a href="#skills" (click)="scrollToSection('skills', $event)">Skills</a>
+    <a href="#experience" (click)="scrollToSection('experience', $event)">Experience</a>
+    <a href="#contact" (click)="scrollToSection('contact', $event)">Contact</a>
+  </div>
+  <div class="menu-toggle" (click)="toggleMenu()">
+    <i class="fas" [ngClass]="isMenuOpen ? 'fa-times' : 'fa-bars'"></i>
+  </div>
+</nav>
+
+<main class="main-content">
+  <div class="section-row">
+    <section id="home" class="section">
+      <app-home></app-home>
+    </section>
+
+    <section id="about" class="section">
+      <app-about></app-about>
+    </section>
+  </div>
+
+  <div class="section-row">
+    <section id="skills" class="section">
+      <app-skills></app-skills>
+    </section>
+
+    <section id="experience" class="section">
+      <app-experience></app-experience>
+    </section>
+  </div>
+
+  <div class="section-row">
+    <section id="contact" class="section">
+      <app-contact></app-contact>
+    </section>
+  </div>
+</main>
+
+<footer class="footer">
+  <p>&copy; 2024 MINISHA P M. All rights reserved.</p>
+</footer>
