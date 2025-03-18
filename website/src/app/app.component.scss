@@ -104,33 +104,13 @@
 }
 
 .main-content {
-  flex: 1;
+  min-height: calc(100vh - 80px - 60px);
+  padding: 2rem;
   margin-top: 80px;
-  width: 100vw;
-  position: relative;
-  margin-left: calc(-50vw + 50%);
-  margin-right: calc(-50vw + 50%);
-  display: flex;
-  flex-direction: column;
-  height: calc(100vh - 80px);
-  overflow-x: hidden;
-  overflow-y: auto;
-  scroll-snap-type: y mandatory;
-  -webkit-overflow-scrolling: touch;
-
-  &::-webkit-scrollbar {
-    width: 8px;
-  }
-
-  &::-webkit-scrollbar-track {
-    background: rgba(102, 126, 234, 0.1);
-    border-radius: 4px;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background: var(--gradient);
-    border-radius: 4px;
-  }
+  background-color: var(--light-bg);
+  color: var(--text-color);
+  transition: background-color var(--transition-speed) ease,
+              color var(--transition-speed) ease;
 }
 
 section {
@@ -153,45 +133,20 @@ section {
 }
 
 .footer {
-  background: var(--gray-100);
-  padding: 4rem 0 2rem;
-  margin-top: 4rem;
+  background-color: var(--footer-bg);
+  color: var(--footer-text);
+  text-align: center;
+  padding: 1rem;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  transition: background-color var(--transition-speed) ease,
+              color var(--transition-speed) ease;
 
-  .footer-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 2rem;
-  }
-
-  .footer-section {
-    h3 {
-      color: var(--primary-color);
-      margin-bottom: 1rem;
-      font-size: 1.2rem;
-    }
-
-    p {
-      color: var(--text-color);
-      opacity: 0.8;
-    }
-  }
-
-  .social-links {
-    display: flex;
-    gap: 1rem;
-
-    .social-link {
-      color: var(--text-color);
-      font-size: 1.5rem;
-      transition: all var(--transition-speed) ease;
-
-      &:hover {
-        color: var(--secondary-color);
-        transform: translateY(-3px);
-      }
-    }
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
   }
 }
 
@@ -199,29 +154,24 @@ section {
   position: fixed;
   bottom: 2rem;
   right: 2rem;
-  background: var(--gradient-primary);
-  color: white;
-  width: 3rem;
-  height: 3rem;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
+  background-color: var(--secondary-color);
+  color: white;
   border: none;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  opacity: 0;
-  transform: translateY(20px);
   transition: all var(--transition-speed) ease;
-  box-shadow: var(--shadow);
   z-index: 1000;
-
-  &.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  opacity: 0.8;
+  box-shadow: var(--shadow);
 
   &:hover {
-    transform: translateY(-5px);
+    opacity: 1;
+    transform: translateY(-3px);
     box-shadow: var(--hover-shadow);
   }
 
@@ -237,15 +187,13 @@ section {
     }
   }
 
-  .footer {
-    .footer-content {
-      flex-direction: column;
-      text-align: center;
-    }
+  .main-content {
+    padding: 1rem;
+  }
 
-    .social-links {
-      justify-content: center;
-    }
+  .scroll-top {
+    bottom: 1rem;
+    right: 1rem;
   }
 }
 

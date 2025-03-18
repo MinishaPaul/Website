@@ -2,30 +2,18 @@
 <app-header></app-header>
 
 <!-- Main Content -->
-<main>
+<main class="main-content">
   <router-outlet></router-outlet>
 </main>
 
 <!-- Scroll to Top Button -->
-<button class="scroll-top" [class.visible]="showScrollTop" (click)="scrollToTop()">
+<button *ngIf="showScrollTop" class="scroll-top" (click)="scrollToTop()" aria-label="Scroll to top">
   <i class="fas fa-arrow-up"></i>
 </button>
 
 <!-- Modern Footer -->
 <footer class="footer">
   <div class="container">
-    <div class="footer-content">
-      <div class="footer-section">
-        <h3>Connect</h3>
-        <div class="social-links">
-          <a href="#" class="social-link"><i class="fab fa-github"></i></a>
-          <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
-          <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-        </div>
-      </div>
-      <div class="footer-section">
-        <p>&copy; {{ currentYear }} {{ title }}. All rights reserved.</p>
-      </div>
-    </div>
+    <p>&copy; {{ currentYear }} Minisha Paul. All rights reserved.</p>
   </div>
 </footer>

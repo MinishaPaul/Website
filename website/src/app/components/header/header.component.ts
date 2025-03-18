@@ -8,7 +8,6 @@ import { Component, HostListener } from '@angular/core';
 export class HeaderComponent {
   isMenuOpen = false;
   isScrolled = false;
-  isDarkMode = false;
 
   @HostListener('window:scroll')
   onWindowScroll() {
@@ -32,10 +31,5 @@ export class HeaderComponent {
       this.isMenuOpen = false;
       document.body.style.overflow = '';
     }
-  }
-
-  toggleTheme() {
-    this.isDarkMode = !this.isDarkMode;
-    document.body.classList.toggle('dark-theme');
   }
 } 

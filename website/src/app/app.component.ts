@@ -1,4 +1,5 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, OnInit, HostListener, Renderer2 } from '@angular/core';
+import { ThemeService } from './services/theme.service';
 
 @Component({
   selector: 'app-root',
@@ -7,28 +8,14 @@ import { Component, OnInit, HostListener } from '@angular/core';
 })
 export class AppComponent implements OnInit {
   title = 'MINISHA PAUL';
-  isDarkMode = false;
   isScrolled = false;
   showScrollTop = false;
   currentYear = new Date().getFullYear();
 
-  ngOnInit() {
-    // Check for saved theme preference
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) {
-      this.isDarkMode = savedTheme === 'dark';
-      this.applyTheme();
-    } else {
-      // Check system preference
-      this.isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      this.applyTheme();
-    }
+  constructor(private renderer: Renderer2, private themeService: ThemeService) {}
 
-    // Listen for system theme changes
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
-      this.isDarkMode = e.matches;
-      this.applyTheme();
-    });
+  ngOnInit() {
+    this.themeService.initTheme();
   }
 
   @HostListener('window:scroll')
@@ -38,13 +25,7 @@ export class AppComponent implements OnInit {
   }
 
   toggleTheme() {
-    this.isDarkMode = !this.isDarkMode;
-    this.applyTheme();
-    localStorage.setItem('theme', this.isDarkMode ? 'dark' : 'light');
-  }
-
-  private applyTheme() {
-    document.documentElement.setAttribute('data-theme', this.isDarkMode ? 'dark' : 'light');
+    this.themeService.toggleTheme();
   }
 
   scrollToTop() {
