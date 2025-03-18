@@ -15,7 +15,7 @@ export class AppComponent implements OnInit {
   constructor(private renderer: Renderer2, private themeService: ThemeService) {}
 
   ngOnInit() {
-    this.themeService.initTheme();
+    // Theme will be automatically initialized by the service
   }
 
   @HostListener('window:scroll')

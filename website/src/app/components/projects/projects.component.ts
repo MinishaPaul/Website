@@ -22,7 +22,7 @@ export class ProjectsComponent implements OnInit {
       client: 'Banking Sector',
       duration: 'MAR 2024 - Present',
       description: 'Developed a comprehensive loan origination process system for financial institutions, streamlining the entire loan application and approval workflow.',
-      techStack: ['Angular', 'Java Spring Boot', 'PostgreSQL', 'Redis']
+      techStack: ['Angular', 'Java Spring Boot', 'MySQL', 'Redis']
     },
     {
       name: 'Trade Surveillance (TS)',
@@ -30,7 +30,7 @@ export class ProjectsComponent implements OnInit {
       client: 'Financial Services',
       duration: 'SEP 2022 - MAR 2024',
       description: 'Built a surveillance system to detect market manipulations and ensure compliance with regulatory requirements in trading operations.',
-      techStack: ['Angular', 'Spring Boot', 'MySQL', 'Elasticsearch']
+      techStack: ['Angular', 'Spring Boot', 'MySQL', 'RabbitMQ']
     },
     {
       name: 'Nirnaya',
@@ -38,7 +38,7 @@ export class ProjectsComponent implements OnInit {
       client: 'Banking Sector',
       duration: 'FEB 2020 - SEP 2022',
       description: 'Developed a decision-making tool for financial operations, integrating complex business rules and automated workflows.',
-      techStack: ['Angular', 'Java', 'Oracle', 'RabbitMQ']
+      techStack: ['Angular', 'Java', 'MySQL', 'RabbitMQ']
     },
     {
       name: 'DOT (Digital One Treasury)',
@@ -46,7 +46,7 @@ export class ProjectsComponent implements OnInit {
       client: 'Treasury Management',
       duration: 'JUL 2019 - FEB 2020',
       description: 'Created a comprehensive treasury management system for handling financial transactions and risk management.',
-      techStack: ['Angular', 'Spring Boot', 'PostgreSQL', 'Redis']
+      techStack: ['Angular', 'Spring Boot', 'Oracle']
     },
     {
       name: 'Data Vault',

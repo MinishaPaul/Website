@@ -5,37 +5,46 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class ThemeService {
-  private darkTheme = new BehaviorSubject<boolean>(false);
-  darkTheme$ = this.darkTheme.asObservable();
-  private mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+  private darkThemeSubject = new BehaviorSubject<boolean>(this.isDarkTheme());
+  darkTheme$ = this.darkThemeSubject.asObservable();
 
   constructor() {
+    // Check system preference initially
+    this.checkSystemThemePreference();
+    
     // Listen for system theme changes
-    this.mediaQuery.addEventListener('change', (e) => {
-      if (!localStorage.getItem('theme')) {
-        this.setDarkTheme(e.matches);
-      }
+    window.matchMedia('(prefers-color-scheme: dark)').addListener(() => {
+      this.checkSystemThemePreference();
     });
+
+    // Apply initial theme
+    this.applyTheme(this.isDarkTheme());
   }
 
-  setDarkTheme(isDark: boolean) {
-    this.darkTheme.next(isDark);
-    document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
-    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+  private checkSystemThemePreference() {
+    if (!localStorage.getItem('theme')) {
+      const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      this.applyTheme(isDark);
+    }
+  }
+
+  private isDarkTheme(): boolean {
+    const theme = localStorage.getItem('theme');
+    if (theme) {
+      return theme === 'dark';
+    }
+    return window.matchMedia('(prefers-color-scheme: dark)').matches;
   }
 
   toggleTheme() {
-    const currentTheme = this.darkTheme.value;
-    this.setDarkTheme(!currentTheme);
+    const isDark = !this.darkThemeSubject.value;
+    this.applyTheme(isDark);
   }
 
-  // Initialize theme from localStorage or system preference
-  initTheme() {
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) {
-      this.setDarkTheme(savedTheme === 'dark');
-    } else if (this.mediaQuery.matches) {
-      this.setDarkTheme(true);
-    }
+  private applyTheme(isDark: boolean) {
+    const theme = isDark ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+    this.darkThemeSubject.next(isDark);
   }
 } 

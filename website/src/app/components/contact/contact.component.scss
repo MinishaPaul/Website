@@ -1,6 +1,6 @@
 .contact-section {
   padding: 5rem 0;
-  background-color: #f8f9fa;
+  background-color: var(--background-color);
 
   .container {
     max-width: 1000px;
@@ -10,14 +10,15 @@
     h1 {
       text-align: center;
       font-size: 2.5rem;
-      color: #2d3748;
+      color: var(--text-color);
       margin-bottom: 1rem;
+      position: relative;
     }
 
     .subtitle {
       text-align: center;
       font-size: 1.2rem;
-      color: #4a5568;
+      color: var(--text-muted);
       margin-bottom: 3rem;
     }
 
@@ -31,14 +32,14 @@
           display: flex;
           align-items: flex-start;
           margin-bottom: 2rem;
-          background-color: white;
+          background-color: var(--card-bg);
           padding: 1.5rem;
           border-radius: 10px;
-          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+          box-shadow: var(--shadow);
 
           i {
             font-size: 1.5rem;
-            color: #667eea;
+            color: var(--secondary-color);
             margin-right: 1rem;
             margin-top: 0.25rem;
           }
@@ -46,22 +47,22 @@
           .info-content {
             h3 {
               font-size: 1.2rem;
-              color: #2d3748;
+              color: var(--text-color);
               margin-bottom: 0.5rem;
             }
 
             p {
-              color: #4a5568;
+              color: var(--text-muted);
             }
           }
         }
       }
 
       .contact-form {
-        background-color: white;
+        background-color: var(--card-bg);
         padding: 2rem;
         border-radius: 10px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        box-shadow: var(--shadow);
 
         .form-group {
           margin-bottom: 1.5rem;
@@ -69,38 +70,40 @@
           label {
             display: block;
             margin-bottom: 0.5rem;
-            color: #2d3748;
+            color: var(--text-color);
             font-weight: 500;
           }
 
           input, textarea {
             width: 100%;
             padding: 0.75rem;
-            border: 1px solid #e2e8f0;
+            border: 1px solid var(--border-color);
             border-radius: 5px;
             font-size: 1rem;
             transition: border-color 0.3s ease;
+            background-color: var(--input-bg);
+            color: var(--text-color);
 
             &:focus {
               outline: none;
-              border-color: #667eea;
+              border-color: var(--secondary-color);
             }
 
             &.error {
-              border-color: #e53e3e;
+              border-color: var(--error-color);
             }
           }
 
           .error-message {
-            color: #e53e3e;
+            color: var(--error-color);
             font-size: 0.875rem;
             margin-top: 0.25rem;
           }
         }
 
         .submit-btn {
-          background-color: #667eea;
-          color: white;
+          background-color: var(--secondary-color);
+          color: var(--background-color);
           padding: 1rem 2rem;
           border: none;
           border-radius: 5px;
@@ -110,11 +113,11 @@
           transition: background-color 0.3s ease;
 
           &:hover {
-            background-color: #5a67d8;
+            background-color: var(--accent-color);
           }
 
           &:disabled {
-            background-color: #cbd5e0;
+            background-color: var(--disabled-color);
             cursor: not-allowed;
           }
         }
@@ -153,13 +156,14 @@
       }
     }
   }
-} 
+}
 
 h1::after {
   content: "";
   position: absolute;
   bottom: -10px;
-  left: 450px;
+  left: 50%;
+  transform: translateX(-50%);
   width: 60px;
   height: 4px;
   background: var(--secondary-color);

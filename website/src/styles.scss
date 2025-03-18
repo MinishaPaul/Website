@@ -3,35 +3,46 @@
 
 :root {
   color-scheme: light dark;
-  // Default light theme colors
-  --primary-color: #2D3436;
-  --primary-color-rgb: 45, 52, 54;
-  --secondary-color: #6C5CE7;
-  --accent-color: #00B894;
-  --text-color: #2D3436;
+  // Light theme (default)
+  --background-color: #ffffff;
+  --text-color: #2d3748;
+  --text-muted: #4a5568;
+  --card-bg: #ffffff;
+  --border-color: #e2e8f0;
+  --shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --primary-color: #2d3748;
+  --secondary-color: #0066FF;
+  --accent-color: #4299e1;
+  --error-color: #e53e3e;
+  --success-color: #48bb78;
+  --disabled-color: #cbd5e0;
+  --input-bg: #ffffff;
+  
+  // Navbar specific colors for light theme
+  --navbar-bg: #2d3748;
+  --navbar-bg-scrolled: #1a202c;
+  --navbar-text: #ffffff;
+  --navbar-hover: rgba(255, 255, 255, 0.1);
   --light-bg: #FFFFFF;
   --dark-bg: #2D3436;
   --gray-100: #F8F9FA;
   --gray-200: #E9ECEF;
   --gray-300: #DEE2E6;
   --transition-speed: 0.3s;
-  --shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
   --hover-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
   --glass-bg: rgba(255, 255, 255, 0.8);
   --glass-border: rgba(255, 255, 255, 0.2);
   --gradient-primary: linear-gradient(135deg, #6C5CE7 0%, #A8A4E6 100%);
   --gradient-accent: linear-gradient(135deg, #00B894 0%, #00CEC9 100%);
   --navbar-text: #FFFFFF;
-  --navbar-bg: #2D3436;
   --navbar-hover: rgba(255, 255, 255, 0.1);
   --menu-bg: #2D3436;
   --menu-text: #FFFFFF;
   --menu-hover: rgba(255, 255, 255, 0.1);
-  --card-bg: #FFFFFF;
   --card-border: rgba(0, 0, 0, 0.1);
   --footer-bg: #2D3436;
   --footer-text: #FFFFFF;
-  --input-bg: #FFFFFF;
   --input-border: #E9ECEF;
   --input-text: #2D3436;
   --input-placeholder: #6C757D;
@@ -41,11 +52,26 @@
 @media (prefers-color-scheme: dark) {
   :root {
     color-scheme: dark;
-    --primary-color: #FFFFFF;
-    --primary-color-rgb: 255, 255, 255;
-    --secondary-color: #A8A4E6;
-    --accent-color: #00CEC9;
-    --text-color: #FFFFFF;
+    --background-color: #1a202c;
+    --text-color: #f7fafc;
+    --text-muted: #a0aec0;
+    --card-bg: #2d3748;
+    --border-color: #4a5568;
+    --shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+    --primary-color: #2d3748;
+    --secondary-color: #4299e1;
+    --accent-color: #63b3ed;
+    --error-color: #fc8181;
+    --success-color: #68d391;
+    --disabled-color: #4a5568;
+    --input-bg: #2d3748;
+    
+    // Navbar specific colors for dark theme
+    --navbar-bg: #2d3748;
+    --navbar-bg-scrolled: #1a202c;
+    --navbar-text: #ffffff;
+    --navbar-hover: rgba(255, 255, 255, 0.1);
     --light-bg: #1A1A1A;
     --dark-bg: #2D3436;
     --gray-100: #2D3436;
@@ -54,16 +80,13 @@
     --glass-bg: rgba(26, 26, 26, 0.8);
     --glass-border: rgba(255, 255, 255, 0.1);
     --navbar-text: #FFFFFF;
-    --navbar-bg: #1A1A1A;
     --navbar-hover: rgba(255, 255, 255, 0.1);
     --menu-bg: #1A1A1A;
     --menu-text: #FFFFFF;
     --menu-hover: rgba(255, 255, 255, 0.1);
-    --card-bg: #2D3436;
     --card-border: rgba(255, 255, 255, 0.1);
     --footer-bg: #1A1A1A;
     --footer-text: #FFFFFF;
-    --input-bg: #2D3436;
     --input-border: #353B48;
     --input-text: #FFFFFF;
     --input-placeholder: #A0A0A0;
@@ -73,11 +96,26 @@
 // Manual theme override
 [data-theme="light"] {
   color-scheme: light;
-  --primary-color: #2D3436;
-  --primary-color-rgb: 45, 52, 54;
-  --secondary-color: #6C5CE7;
-  --accent-color: #00B894;
-  --text-color: #2D3436;
+  --background-color: #ffffff;
+  --text-color: #2d3748;
+  --text-muted: #4a5568;
+  --card-bg: #ffffff;
+  --border-color: #e2e8f0;
+  --shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --primary-color: #2d3748;
+  --secondary-color: #0066FF;
+  --accent-color: #4299e1;
+  --error-color: #e53e3e;
+  --success-color: #48bb78;
+  --disabled-color: #cbd5e0;
+  --input-bg: #ffffff;
+  
+  // Navbar specific colors for light theme
+  --navbar-bg: #2d3748;
+  --navbar-bg-scrolled: #1a202c;
+  --navbar-text: #ffffff;
+  --navbar-hover: rgba(255, 255, 255, 0.1);
   --light-bg: #FFFFFF;
   --dark-bg: #2D3436;
   --gray-100: #F8F9FA;
@@ -86,16 +124,13 @@
   --glass-bg: rgba(255, 255, 255, 0.8);
   --glass-border: rgba(255, 255, 255, 0.2);
   --navbar-text: #FFFFFF;
-  --navbar-bg: #2D3436;
   --navbar-hover: rgba(255, 255, 255, 0.1);
   --menu-bg: #2D3436;
   --menu-text: #FFFFFF;
   --menu-hover: rgba(255, 255, 255, 0.1);
-  --card-bg: #FFFFFF;
   --card-border: rgba(0, 0, 0, 0.1);
   --footer-bg: #2D3436;
   --footer-text: #FFFFFF;
-  --input-bg: #FFFFFF;
   --input-border: #E9ECEF;
   --input-text: #2D3436;
   --input-placeholder: #6C757D;
@@ -103,11 +138,26 @@
 
 [data-theme="dark"] {
   color-scheme: dark;
-  --primary-color: #FFFFFF;
-  --primary-color-rgb: 255, 255, 255;
-  --secondary-color: #A8A4E6;
-  --accent-color: #00CEC9;
-  --text-color: #FFFFFF;
+  --background-color: #1a202c;
+  --text-color: #f7fafc;
+  --text-muted: #a0aec0;
+  --card-bg: #2d3748;
+  --border-color: #4a5568;
+  --shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+  --primary-color: #2d3748;
+  --secondary-color: #4299e1;
+  --accent-color: #63b3ed;
+  --error-color: #fc8181;
+  --success-color: #68d391;
+  --disabled-color: #4a5568;
+  --input-bg: #2d3748;
+  
+  // Navbar specific colors for dark theme
+  --navbar-bg: #2d3748;
+  --navbar-bg-scrolled: #1a202c;
+  --navbar-text: #ffffff;
+  --navbar-hover: rgba(255, 255, 255, 0.1);
   --light-bg: #1A1A1A;
   --dark-bg: #2D3436;
   --gray-100: #2D3436;
@@ -116,16 +166,13 @@
   --glass-bg: rgba(26, 26, 26, 0.8);
   --glass-border: rgba(255, 255, 255, 0.1);
   --navbar-text: #FFFFFF;
-  --navbar-bg: #1A1A1A;
   --navbar-hover: rgba(255, 255, 255, 0.1);
   --menu-bg: #1A1A1A;
   --menu-text: #FFFFFF;
   --menu-hover: rgba(255, 255, 255, 0.1);
-  --card-bg: #2D3436;
   --card-border: rgba(255, 255, 255, 0.1);
   --footer-bg: #1A1A1A;
   --footer-text: #FFFFFF;
-  --input-bg: #2D3436;
   --input-border: #353B48;
   --input-text: #FFFFFF;
   --input-placeholder: #A0A0A0;
@@ -152,38 +199,29 @@ html {
 body {
   height: 100%;
   width: 100%;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-family: 'Poppins', sans-serif;
   font-size: 16px;
   line-height: 1.5;
   color: var(--text-color);
-  background-color: var(--light-bg);
+  background-color: var(--background-color);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
-  transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Space Grotesk', sans-serif;
+  color: var(--text-color);
 }
 
 .section {
-  height: 100vh;
-  width: 100vw;
-  padding: 6rem 0 2rem;
+  padding: 2rem;
+  min-height: 100vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  position: relative;
-  overflow: hidden;
-  margin-left: calc(-50vw + 50%);
-  margin-right: calc(-50vw + 50%);
-  transition: all var(--transition-speed) ease;
-  background-color: var(--light-bg);
-
-  &:nth-child(odd) {
-    background-color: var(--gray-100);
-  }
 }
 
 .container {
@@ -203,7 +241,6 @@ h1 {
   font-size: 3.5rem;
   font-weight: 700;
   margin-bottom: 1.5rem;
-  color: var(--primary-color);
   position: relative;
   display: inline-block;
   letter-spacing: -1px;
@@ -224,7 +261,6 @@ h2 {
   font-size: 2.5rem;
   font-weight: 600;
   margin-bottom: 1.5rem;
-  color: var(--primary-color);
   position: relative;
   display: inline-block;
   letter-spacing: -0.5px;
@@ -245,7 +281,6 @@ h3 {
   font-size: 1.75rem;
   font-weight: 500;
   margin-bottom: 1rem;
-  color: var(--primary-color);
 }
 
 p {
@@ -257,62 +292,27 @@ p {
 }
 
 .btn {
-  display: inline-block;
-  padding: 1rem 2rem;
-  border-radius: 12px;
-  font-weight: 500;
-  text-align: center;
-  cursor: pointer;
-  transition: all var(--transition-speed) ease;
-  position: relative;
-  overflow: hidden;
-  z-index: 1;
-  font-size: 1.1rem;
-  letter-spacing: 0.5px;
+  background-color: var(--secondary-color);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
   border: none;
-  backdrop-filter: blur(10px);
-
-  &.primary {
-    background: var(--gradient-primary);
-    color: white;
-    box-shadow: var(--shadow);
-
-    &:hover {
-      transform: translateY(-2px);
-      box-shadow: var(--hover-shadow);
-      opacity: 0.9;
-    }
-  }
-
-  &.secondary {
-    background: transparent;
-    border: 2px solid var(--secondary-color);
-    color: var(--secondary-color);
-
-    &:hover {
-      background: var(--secondary-color);
-      color: white;
-      transform: translateY(-2px);
-    }
-  }
-}
-
-// Modern card styles
-.card {
-  background: var(--card-bg);
-  border: 1px solid var(--card-border);
-  border-radius: 16px;
-  padding: 2rem;
-  transition: all var(--transition-speed) ease;
-  box-shadow: var(--shadow);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 
   &:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--hover-shadow);
+    background-color: var(--accent-color);
   }
 }
 
-// Enhanced animations
+.card {
+  background-color: var(--card-bg);
+  box-shadow: var(--shadow);
+  border-radius: 8px;
+  padding: 1.5rem;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
 .fade-in {
   opacity: 0;
   transform: translateY(30px);
@@ -346,7 +346,6 @@ p {
   }
 }
 
-// Utility classes
 .mt-1 { margin-top: 0.25rem; }
 .mt-2 { margin-top: 0.5rem; }
 .mt-3 { margin-top: 1rem; }
@@ -463,7 +462,6 @@ p {
   width: 100%;
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
   .section {
     padding: 3rem 0 1rem;
@@ -532,7 +530,6 @@ p {
     font-size: 1rem;
   }
 
-  // Improve touch targets
   button, 
   a {
     min-height: 44px;
@@ -540,11 +537,10 @@ p {
     padding: 0.5rem;
   }
 
-  // Improve form elements on mobile
   input, 
   select, 
   textarea {
-    font-size: 16px; // Prevent iOS zoom on focus
+    font-size: 16px;
   }
 }
 
@@ -575,7 +571,6 @@ p {
   }
 }
 
-// Tablet and larger
 @media screen and (min-width: 769px) {
   .container {
     padding: 2rem;
@@ -584,7 +579,6 @@ p {
   }
 }
 
-// Utility classes
 .w-100 {
   width: 100%;
 }
@@ -593,7 +587,6 @@ p {
   height: 100%;
 }
 
-// Flex utilities
 .d-flex {
   display: flex;
 }
@@ -610,17 +603,14 @@ p {
   align-items: center;
 }
 
-// Spacing utilities
 .m-0 { margin: 0; }
 .p-0 { padding: 0; }
 
-// Responsive images
 img {
   max-width: 100%;
   height: auto;
 }
 
-// Better tap highlights for mobile
 @media (hover: none) {
   a:active,
   button:active {
@@ -628,18 +618,15 @@ img {
   }
 }
 
-// Remove outline for non-keyboard interactions
 *:focus:not(:focus-visible) {
   outline: none;
 }
 
-// Maintain outline for keyboard navigation
 *:focus-visible {
   outline: 2px solid #000;
   outline-offset: 2px;
 }
 
-// iOS-specific fixes
 @supports (-webkit-touch-callout: none) {
   .section {
     min-height: -webkit-fill-available;
@@ -667,14 +654,12 @@ img {
   }
 }
 
-// Fix for iOS Safari 100vh issue
 @supports not (-webkit-touch-callout: none) {
   .section {
     height: 100vh;
   }
 }
 
-// Update form elements
 input, textarea, select {
   background-color: var(--input-bg);
   border: 1px solid var(--input-border);
@@ -692,5 +677,15 @@ input, textarea, select {
     outline: none;
     border-color: var(--secondary-color);
     box-shadow: 0 0 0 2px rgba(var(--secondary-color), 0.2);
+  }
+}
+
+a {
+  color: var(--secondary-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: var(--accent-color);
   }
 }

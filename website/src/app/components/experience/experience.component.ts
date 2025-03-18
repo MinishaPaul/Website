@@ -17,11 +17,11 @@ export class ExperienceComponent implements OnInit {
   experiences: Experience[] = [
     {
       company: 'FINSURGE PVT LTD',
-      location: 'Chennai, India',
+      location: 'Nagercoil, India',
       position: 'Senior Technical Lead',
       duration: 'MAR 2024 - Present',
       responsibilities: [
-        'Leading a team of 6 developers in developing and maintaining financial applications',
+        'Be a part of the core team in developing and maintaining financial applications',
         'Designing mock screens and implementing UI/UX improvements',
         'Improving existing systems through code refactoring and optimization',
         'Conducting code reviews and providing technical guidance to team members'
@@ -29,7 +29,7 @@ export class ExperienceComponent implements OnInit {
     },
     {
       company: 'FINSURGE SDN BHD',
-      location: 'Malaysia (Remote)',
+      location: 'Malaysia',
       position: 'Module Lead & Client Facing',
       duration: 'SEP 2022 - MAR 2024',
       responsibilities: [
@@ -41,7 +41,7 @@ export class ExperienceComponent implements OnInit {
     },
     {
       company: 'FINSURGE PVT LTD',
-      location: 'Chennai, India',
+      location: 'Nagercoil, India',
       position: 'Module Lead',
       duration: 'FEB 2020 - SEP 2022',
       responsibilities: [

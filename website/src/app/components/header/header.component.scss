@@ -4,7 +4,7 @@
 }
 
 .navbar {
-  background-color: var(--primary-color);
+  background-color: var(--navbar-bg);
   padding: 1rem 2rem;
   display: flex;
   justify-content: space-between;
@@ -14,14 +14,16 @@
   left: 0;
   right: 0;
   z-index: 1000;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow);
+  transition: all 0.3s ease;
 
   &.scrolled {
     padding: 0.5rem 2rem;
+    background-color: var(--navbar-bg-scrolled);
   }
 
   .navbar-brand {
-    color: white;
+    color: var(--navbar-text);
     font-size: 1.5rem;
     font-weight: 600;
     text-decoration: none;
@@ -29,7 +31,7 @@
     transition: color 0.3s ease;
 
     &:hover {
-      color: var(--accent-color);
+      color: var(--secondary-color);
     }
   }
 
@@ -48,7 +50,7 @@
     .bar {
       width: 100%;
       height: 3px;
-      background-color: white;
+      background-color: var(--navbar-text);
       border-radius: 3px;
       transition: all 0.3s ease-in-out;
     }
@@ -72,19 +74,31 @@
     align-items: center;
 
     a {
-      color: white;
+      color: var(--navbar-text);
       text-decoration: none;
       font-weight: 500;
-      transition: color 0.3s ease;
+      transition: all 0.3s ease;
       padding: 0.5rem 1rem;
       border-radius: 4px;
+      position: relative;
 
       &:hover {
-        color: var(--accent-color);
+        color: var(--secondary-color);
       }
 
       &.active {
-        color: var(--accent-color);
+        color: var(--secondary-color);
+        
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 1rem;
+          right: 1rem;
+          height: 2px;
+          background-color: var(--secondary-color);
+          border-radius: 1px;
+        }
       }
     }
   }
@@ -93,7 +107,6 @@
 @media (max-width: 768px) {
   .navbar {
     padding: 1rem;
-    background-color: var(--primary-color);
 
     &.scrolled {
       padding: 0.5rem 1rem;
@@ -109,7 +122,7 @@
       left: 0;
       width: 100%;
       height: 100vh;
-      background-color: var(--primary-color);
+      background-color: var(--navbar-bg);
       padding: 5rem 2rem 2rem;
       flex-direction: column;
       align-items: flex-start;
@@ -125,23 +138,27 @@
         font-size: 1.25rem;
         width: 100%;
         padding: 1rem;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        border-bottom: 1px solid var(--border-color);
         display: flex;
         align-items: center;
-        color: white;
+        color: var(--navbar-text);
 
         &:last-child {
           border-bottom: none;
         }
 
         &:hover {
-          background-color: rgba(255, 255, 255, 0.1);
-          color: var(--accent-color);
+          background-color: var(--navbar-hover);
+          color: var(--secondary-color);
         }
 
         &.active {
-          color: var(--accent-color);
-          background-color: rgba(255, 255, 255, 0.05);
+          color: var(--secondary-color);
+          background-color: var(--navbar-hover);
+          
+          &::after {
+            display: none;
+          }
         }
       }
     }
