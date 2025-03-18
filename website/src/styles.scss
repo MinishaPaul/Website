@@ -1,19 +1,39 @@
 /* You can add global styles to this file, and also import other style files */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap');
 
 :root {
+  // Light theme colors
   --primary-color: #2D3436;
-  --secondary-color: #0984E3;
+  --secondary-color: #6C5CE7;
   --accent-color: #00B894;
   --text-color: #2D3436;
   --light-bg: #FFFFFF;
   --dark-bg: #2D3436;
-  --gray-100: #F5F6FA;
-  --gray-200: #DFE6E9;
-  --gray-300: #B2BEC3;
+  --gray-100: #F8F9FA;
+  --gray-200: #E9ECEF;
+  --gray-300: #DEE2E6;
   --transition-speed: 0.3s;
-  --shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-  --hover-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  --hover-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  --glass-bg: rgba(255, 255, 255, 0.8);
+  --glass-border: rgba(255, 255, 255, 0.2);
+  --gradient-primary: linear-gradient(135deg, #6C5CE7 0%, #A8A4E6 100%);
+  --gradient-accent: linear-gradient(135deg, #00B894 0%, #00CEC9 100%);
+}
+
+// Dark theme variables
+[data-theme="dark"] {
+  --primary-color: #FFFFFF;
+  --secondary-color: #A8A4E6;
+  --accent-color: #00CEC9;
+  --text-color: #FFFFFF;
+  --light-bg: #1A1A1A;
+  --dark-bg: #2D3436;
+  --gray-100: #2D3436;
+  --gray-200: #353B48;
+  --gray-300: #2F3640;
+  --glass-bg: rgba(26, 26, 26, 0.8);
+  --glass-border: rgba(255, 255, 255, 0.1);
 }
 
 * {
@@ -30,22 +50,27 @@ html, body {
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 60px;
+  scroll-padding-top: 80px;
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Inter', sans-serif;
   line-height: 1.6;
   color: var(--text-color);
   min-width: 100%;
   height: 100%;
   background-color: var(--light-bg);
+  transition: background-color var(--transition-speed) ease;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Space Grotesk', sans-serif;
 }
 
 .section {
   height: 100vh;
   width: 100vw;
-  padding: 4rem 0 1rem;
+  padding: 6rem 0 2rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -134,7 +159,7 @@ p {
 .btn {
   display: inline-block;
   padding: 1rem 2rem;
-  border-radius: 8px;
+  border-radius: 12px;
   font-weight: 500;
   text-align: center;
   cursor: pointer;
@@ -145,16 +170,16 @@ p {
   font-size: 1.1rem;
   letter-spacing: 0.5px;
   border: none;
+  backdrop-filter: blur(10px);
 
   &.primary {
-    background: var(--secondary-color);
+    background: var(--gradient-primary);
     color: white;
     box-shadow: var(--shadow);
 
     &:hover {
       transform: translateY(-2px);
       box-shadow: var(--hover-shadow);
-      background: #0773c5;
       opacity: 0.9;
     }
   }
@@ -172,11 +197,27 @@ p {
   }
 }
 
-// Animation classes
+// Modern card styles
+.card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  padding: 2rem;
+  transition: all var(--transition-speed) ease;
+  box-shadow: var(--shadow);
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--hover-shadow);
+  }
+}
+
+// Enhanced animations
 .fade-in {
   opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.6s ease;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
   
   &.visible {
     opacity: 1;
@@ -186,8 +227,8 @@ p {
 
 .slide-in {
   opacity: 0;
-  transform: translateX(-20px);
-  transition: all 0.6s ease;
+  transform: translateX(-30px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
   
   &.visible {
     opacity: 1;
@@ -198,7 +239,7 @@ p {
 .scale-in {
   opacity: 0;
   transform: scale(0.95);
-  transition: all 0.6s ease;
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
   
   &.visible {
     opacity: 1;

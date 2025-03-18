@@ -1,45 +1,45 @@
+<!-- Modern Navigation -->
 <nav class="navbar" [class.scrolled]="isScrolled">
-  <a href="#" class="navbar-brand">MINISHA P M</a>
-  <div class="navbar-links" [class.active]="isMenuOpen">
-    <a href="#home" (click)="scrollToSection('home', $event)">Home</a>
-    <a href="#about" (click)="scrollToSection('about', $event)">About</a>
-    <a href="#skills" (click)="scrollToSection('skills', $event)">Skills</a>
-    <a href="#experience" (click)="scrollToSection('experience', $event)">Experience</a>
-    <a href="#contact" (click)="scrollToSection('contact', $event)">Contact</a>
-  </div>
-  <div class="menu-toggle" (click)="toggleMenu()">
-    <i class="fas" [ngClass]="isMenuOpen ? 'fa-times' : 'fa-bars'"></i>
+  <div class="container">
+    <a routerLink="/" class="navbar-brand">{{ title }}</a>
+    <div class="navbar-links">
+      <a routerLink="/" class="nav-link">Home</a>
+      <a routerLink="/about" class="nav-link">About</a>
+      <a routerLink="/skills" class="nav-link">Skills</a>
+      <a routerLink="/experience" class="nav-link">Experience</a>
+      <a routerLink="/contact" class="nav-link">Contact</a>
+      <button class="theme-toggle" (click)="toggleTheme()">
+        <i class="fas" [class.fa-sun]="!isDarkMode" [class.fa-moon]="isDarkMode"></i>
+      </button>
+    </div>
   </div>
 </nav>
 
-<main class="main-content">
-  <div class="section-row">
-    <section id="home" class="section">
-      <app-home></app-home>
-    </section>
-
-    <section id="about" class="section">
-      <app-about></app-about>
-    </section>
-  </div>
-
-  <div class="section-row">
-    <section id="skills" class="section">
-      <app-skills></app-skills>
-    </section>
-
-    <section id="experience" class="section">
-      <app-experience></app-experience>
-    </section>
-  </div>
-
-  <div class="section-row">
-    <section id="contact" class="section">
-      <app-contact></app-contact>
-    </section>
-  </div>
+<!-- Main Content -->
+<main>
+  <router-outlet></router-outlet>
 </main>
 
+<!-- Scroll to Top Button -->
+<button class="scroll-top" [class.visible]="showScrollTop" (click)="scrollToTop()">
+  <i class="fas fa-arrow-up"></i>
+</button>
+
+<!-- Modern Footer -->
 <footer class="footer">
-  <p>&copy; 2024 MINISHA P M. All rights reserved.</p>
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Connect</h3>
+        <div class="social-links">
+          <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+        </div>
+      </div>
+      <div class="footer-section">
+        <p>&copy; {{ currentYear }} {{ title }}. All rights reserved.</p>
+      </div>
+    </div>
+  </div>
 </footer>
